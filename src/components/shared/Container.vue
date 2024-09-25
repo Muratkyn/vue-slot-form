@@ -1,5 +1,9 @@
-<script setup>
-defineProps({});
+<script setup lang="ts">
+import type { Props } from "@/types";
+
+defineProps({
+  // isButtonSubmitVisible: false,
+});
 </script>
 
 <template>
@@ -7,6 +11,7 @@ defineProps({});
     <slot name="Content"></slot>
     <button>Prev</button>
     <button>Next</button>
+    <button>Submit</button>
   </div>
 </template>
 

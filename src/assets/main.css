@@ -1,0 +1,36 @@
+#app body {
+  font-family: "Poppins";
+}
+#app {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+#app button {
+  padding: 10px 20px;
+  width: auto;
+  margin: 4px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #81cf6b;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.4s ease;
+  color: #fff;
+}
+
+#app button:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #346d53;
+}
+
+#app button:active {
+  transform: scale(0.9) translate(0, 4px);
+}
+
+#app h2 {
+  font-weight: 700;
+}
