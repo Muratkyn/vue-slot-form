@@ -1,15 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
 #app body {
+  width: full;
   font-family: "Poppins";
 }
 #app {
   display: flex;
   justify-content: center;
-  width: 100%;
   padding: 2rem;
 }
 
-#app button {
-  padding: 10px 20px;
+button {
+  padding: 0.6rem 3rem;
   width: auto;
   margin: 4px;
   border-radius: 5px;
@@ -21,16 +23,43 @@
   color: #fff;
 }
 
-#app button:hover {
+button:hover {
   cursor: pointer;
   color: #fff;
   background-color: #346d53;
 }
 
-#app button:active {
+button:active {
   transform: scale(0.9) translate(0, 4px);
 }
 
 #app h2 {
   font-weight: 700;
+}
+
+#app .home-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+  align-items: center;
+  padding-inline: 1rem;
+  margin-block: 2rem;
+}
+
+.input-field {
+  padding: 0.5rem;
+  width: 80%;
+  margin: 4px;
+  border-radius: 4px;
+  border-style: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+  background-color: rgb(231, 230, 230);
+}
+
+.input-field:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: #ffca47;
 }
