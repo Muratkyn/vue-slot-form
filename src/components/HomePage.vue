@@ -1,16 +1,16 @@
 <template>
   <div class="home-wrapper">
-    <h2>Start Survey now!</h2>
-    <p>
-      We are adding values by collecting informations ofr your cat health.Please
-      follow the steps below and fill out the form.
+    <h2>Inizia questionario!</h2>
+    <h4>
+      Stiamo aggiungendo valore raccogliendo informazioni sulla salute del tuo
+      gatto. Segui i passaggi indicati di seguito e compila il modulo.
 
       <br />
-      Please follow the steps below and fill out the form.
-    </p>
+      Si prega di seguire i passaggi sottostanti e compila il modulo.
+    </h4>
     <div class="terms-first-input">
       <input type="checkbox" name="terms" />
-      <span>I would like to receive updates and notifications.</span>
+      <span> Vorrei ricevere aggiornamenti e notifiche.</span>
     </div>
     <div class="terms-second-input">
       <input
@@ -19,12 +19,12 @@
         v-model="store.isChecked"
         :value="store.isChecked"
       />
-      <span>I agree to the <a href="/not-found">terms and conditions</a></span>
+      <span>Accetto <a href="/not-found">i termini e le condizioni</a></span>
     </div>
     <Container
-      :isNextButtonVisible="true"
+      :isNextButtonVisible="getNextButton()"
       :onClickNext="onClickNext"
-      :isStepperVisible="showStepper"
+      :isStepperVisible="showStepper()"
       :isButtonEnabled="store.isChecked"
     >
       <template #Content> </template>
@@ -39,23 +39,28 @@ import router from "@/router";
 
 const store = useAppStore();
 
+const getNextButton = () => {
+  return store.currentPage === 0;
+};
 const onClickNext = () => {
   router.push({ path: "/cat-basic" });
   store.currentPage = 1;
 };
 
 const showStepper = () => {
-  return store.currentPage !== 0;
+  return store.currentPage === 0;
 };
 </script>
 
 <style scoped>
 .terms-first-input {
   align-self: start;
-  padding: 2rem 0 0 12%;
+  font-weight: bold;
+  padding: 2rem 0 0 20%;
 }
 .terms-second-input {
   align-self: start;
-  padding-left: 12%;
+  font-weight: bold;
+  padding-left: 20%;
 }
 </style>
