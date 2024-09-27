@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/components/HomePage.vue";
 import CatBasicInfo from "@/components/CatBasicInfo.vue";
 import CatFoodInfo from "@/components/CatFoodInfo.vue";
-import CatIlnessInfo from "@/components/CatIlnessInfo.vue";
+import CatHealthInfo from "@/components/CatHealthInfo.vue";
 import CatVaccineInfo from "@/components/CatVaccineInfo.vue";
 
 const router = createRouter({
@@ -24,9 +24,9 @@ const router = createRouter({
       component: CatFoodInfo,
     },
     {
-      path: "/cat-illness",
-      name: "catIllness",
-      component: CatIlnessInfo,
+      path: "/cat-health",
+      name: "catHealth",
+      component: CatHealthInfo,
     },
     {
       path: "/cat-vaccine",

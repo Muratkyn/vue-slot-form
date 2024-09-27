@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import HomePage from "./components/HomePage.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="main">
@@ -13,10 +11,8 @@ import HomePage from "./components/HomePage.vue";
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: solid rgb(168, 164, 164); */
   border-radius: 1rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  width: 50%;
-  max-width: 80%;
+  width: 60%;
 }
 </style>
