@@ -3,7 +3,8 @@ import HomePage from "@/components/HomePage.vue";
 import CatBasicInfo from "@/components/CatBasicInfo.vue";
 import CatFoodInfo from "@/components/CatFoodInfo.vue";
 import CatHealthInfo from "@/components/CatHealthInfo.vue";
-import CatVaccineInfo from "@/components/CatVaccineInfo.vue";
+import CatQuest from "@/components/CatQuest.vue";
+import ThankYou from "@/components/ThankYou.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -29,9 +30,14 @@ const router = createRouter({
       component: CatHealthInfo,
     },
     {
-      path: "/cat-vaccine",
-      name: "catVaccine",
-      component: CatVaccineInfo,
+      path: "/cat-quest",
+      name: "catQuest",
+      component: CatQuest,
+    },
+    {
+      path: "/thank-you",
+      name: "thankYou",
+      component: ThankYou,
     },
   ],
 });

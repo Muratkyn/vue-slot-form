@@ -26,21 +26,34 @@ const store = useAppStore();
   <div class="stepper-wrapper" v-if="!isStepperVisible">
     <span
       :class="{
-        backgroundGreen: store.currentPage === 1 || store.currentPage === 2,
+        backgroundGreen:
+          store.currentPage === 2 ||
+          store.currentPage === 3 ||
+          store.currentPage === 4,
       }"
       >1</span
     >
-    <hr :class="{ proceeded: store.currentPage === 2 }" />
+    <hr :class="{ proceeded: store.currentPage > 1 }" />
     <span
       :class="{
-        backgroundGreen: store.currentPage === 2,
+        backgroundGreen: store.currentPage === 3 || store.currentPage === 4,
       }"
       >2</span
     >
-    <hr />
-    <span>3</span>
-    <hr />
-    <span>4</span>
+    <hr :class="{ proceeded: store.currentPage > 2 }" />
+    <span
+      :class="{
+        backgroundGreen: store.currentPage === 4,
+      }"
+      >3</span
+    >
+    <hr :class="{ proceeded: store.currentPage > 3 }" />
+    <span
+      :class="{
+        backgroundGreen: store.currentPage > 4,
+      }"
+      >4</span
+    >
   </div>
 
   <div class="home-wrapper">
@@ -98,7 +111,7 @@ span {
 }
 
 hr {
-  width: 100px;
+  width: 150px;
   border-color: grey;
 }
 .proceeded {
