@@ -22,3 +22,17 @@ export type CatFoodInformation = {
   catFoodQuality: number;
   catFoodBrand: number;
 };
+
+export type CatHealthData = {
+  catHealthTrack: number;
+  catHealthHistory: number;
+};
+
+export type CatDiseaseHistory = {
+  pulci: number;
+  vermi: number;
+  diabete: number;
+  influenzaFelina: number;
+  clamidiaFelina: number;
+  none: number;
+};

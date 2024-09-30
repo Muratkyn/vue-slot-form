@@ -1,13 +1,15 @@
 <template>
   <div class="home-wrapper">
-    <h2>Inizia questionario!</h2>
-    <h4>
-      Stiamo aggiungendo valore raccogliendo informazioni sulla salute del tuo
-      gatto. Segui i passaggi indicati di seguito e compila il modulo.
+    <div class="title-wrapper">
+      <h2>Inizia questionario!</h2>
+      <h4>
+        Stiamo aggiungendo valore raccogliendo informazioni sulla salute del tuo
+        gatto. Segui i passaggi indicati di seguito e compila il modulo.
 
-      <br />
-      Si prega di seguire i passaggi sottostanti e compila il modulo.
-    </h4>
+        <br />
+        Si prega di seguire i passaggi sottostanti e compila il modulo.
+      </h4>
+    </div>
     <div class="terms-first-input">
       <input type="checkbox" name="terms" />
       <span> Vorrei ricevere aggiornamenti e notifiche.</span>

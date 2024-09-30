@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <Container
       :isNextButtonVisible="getNextButton"
       :isPrevButtonVisible="getPrevButton"
@@ -96,28 +96,4 @@ const enableButton = computed(() => {
 });
 </script>
 
-<style scoped>
-.radio-wrapper {
-  display: flex;
-  flex-flow: column;
-
-  align-items: flex-start;
-  justify-content: baseline;
-}
-
-.foodInfo-wrapper {
-  align-self: flex-start;
-  margin-left: 1rem;
-}
-
-.radio-wrapper__center {
-  display: flex;
-  align-items: flex-start;
-  padding: 0.25rem;
-  margin-block: 0.3rem;
-  flex-wrap: wrap;
-}
-.input-field__second {
-  margin: 0.5rem;
-}
-</style>
+<style scoped></style>
