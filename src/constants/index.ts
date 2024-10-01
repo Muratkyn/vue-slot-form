@@ -37,7 +37,7 @@ export const catFoodData = [
     question: "Cambi occasionalmente il tipo di cibo?",
     answers: [
       {
-        label: "Yes",
+        label: "Si",
         value: 1,
       },
       {
@@ -51,7 +51,7 @@ export const catFoodData = [
     question: "Vorresti riconsiderare la marca del cibo che stai regalando?",
     answers: [
       {
-        label: "Yes",
+        label: "Si",
         value: 1,
       },
       {
@@ -70,7 +70,7 @@ export const catFoodData = [
       "Credi che cambiare marca aiuterà la salute generale del tuo gatto?",
     answers: [
       {
-        label: "Yes",
+        label: "Si",
         value: 1,
       },
       {
@@ -117,7 +117,7 @@ export const catHealthData = [
     question: "Il vostro gatto ha avuto qualche malattia negli ultimi 6 mesi?",
     answers: [
       {
-        label: "Yes",
+        label: "Si",
         value: 1,
       },
       {

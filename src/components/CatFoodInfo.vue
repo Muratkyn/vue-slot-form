@@ -1,8 +1,8 @@
 <template>
   <div>
     <Container
-      :isNextButtonVisible="getNextButton"
-      :isPrevButtonVisible="getPrevButton"
+      isNextButtonVisible
+      isPrevButtonVisible
       :is-button-enabled="enableButton"
       :onClickNext="goNext"
       :onClickPrev="goPrev"
@@ -19,7 +19,9 @@
           class="foodInfo-wrapper"
         >
           <div class="radio-wrapper">
-            <label for="data">{{ index + 1 }} - {{ data.question }}</label>
+            <label name="data.name" for="data"
+              >{{ index + 1 }} - {{ data.question }}</label
+            >
             <div
               class="radio-wrapper__center"
               v-for="answer in data.answers"
@@ -32,7 +34,7 @@
                 :name="data.name"
                 v-model="store.catFoodInformation[data.name as keyof CatFoodInformation]"
               />
-              <label for="">{{ answer.label }}</label>
+              <label name="data.name" for="">{{ answer.label }}</label>
               <input
                 v-if="
                   data.name === 'catFoodBrand' &&
@@ -65,13 +67,13 @@ onMounted(() => {
   store.currentPage = 2;
 });
 
-const getNextButton = computed(() => {
-  return store.currentPage === 2;
-});
+// const getNextButton = () => {
+//   return store.currentPage === 2;
+// };
 
-const getPrevButton = computed(() => {
-  return store.currentPage === 2;
-});
+// const getPrevButton = () => {
+//   return store.currentPage === 2;
+// };
 
 const goNext = () => {
   store.currentPage = 3;

@@ -1,8 +1,8 @@
 <template>
   <div>
     <Container
-      :is-next-button-visible="getNextButton"
-      :is-prev-button-visible="getPrevButton"
+      is-next-button-visible
+      is-prev-button-visible
       :is-button-enabled="enableButton"
       :onClickNext="goNext"
       :onClickPrev="goPrev"
@@ -11,7 +11,7 @@
         <h2>Traccia salute del gatto</h2>
         <h4>
           Vi preghiamo di fornirci maggiori dettagli sulla storia sanitaria del
-          tuo gatto.
+          tuo gatto che sono obbligatori.
         </h4>
 
         <div
@@ -68,7 +68,7 @@
 <script lang="ts" setup>
 import { useAppStore } from "@/stores/store";
 import Container from "./shared/Container.vue";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import router from "@/router";
 import { catHealthData } from "@/constants";
 import { catDiseaseHistory } from "@/constants";
@@ -76,14 +76,9 @@ import type { CatDiseaseHistory, CatHealthData } from "@/types";
 
 const store = useAppStore();
 
-const getNextButton = computed(() => {
-  return store.currentPage === 3;
+onMounted(() => {
+  store.currentPage = 3;
 });
-
-const getPrevButton = computed(() => {
-  return store.currentPage === 3;
-});
-
 const enableButton = computed(() => {
   const radioBoxChosen = Object.values(store.catHealthData).every(
     (el) => el !== 0
@@ -110,9 +105,7 @@ const updateCheckboxState = (event: Event, answerName: string) => {
 
   if (answerName === "none" && isChecked) {
     Object.keys(store.catDiseaseHistory).forEach((key) => {
-      if (key !== "none") {
-        store.catDiseaseHistory[key as keyof CatDiseaseHistory] = 0;
-      }
+      store.catDiseaseHistory[key as keyof CatDiseaseHistory] = 0;
     });
   } else if (isChecked) {
     store.catDiseaseHistory.none = 0;
