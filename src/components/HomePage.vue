@@ -5,7 +5,6 @@
       <h4>
         Stiamo aggiungendo valore raccogliendo informazioni sulla salute del tuo
         gatto. Segui i passaggi indicati di seguito e compila il modulo.
-
         <br />
         Si prega di seguire i passaggi sottostanti e compila il modulo.
       </h4>
@@ -24,7 +23,7 @@
       <span>Accetto <a href="/not-found">i termini e le condizioni</a></span>
     </div>
     <Container
-      :isNextButtonVisible="getNextButton()"
+      isNextButtonVisible
       :onClickNext="onClickNext"
       :isStepperVisible="showStepper()"
       :isButtonEnabled="store.isChecked"
@@ -38,12 +37,14 @@
 import { useAppStore } from "@/stores/store";
 import Container from "./shared/Container.vue";
 import router from "@/router";
+import { onMounted } from "vue";
 
 const store = useAppStore();
 
-const getNextButton = () => {
-  return store.currentPage === 0;
-};
+onMounted(() => {
+  store.currentPage = 0;
+});
+
 const onClickNext = () => {
   router.push({ path: "/cat-basic" });
   store.currentPage = 1;

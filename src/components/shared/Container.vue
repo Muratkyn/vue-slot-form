@@ -108,6 +108,7 @@ span {
 .backgroundGreen {
   background-color: #81cf6b;
   font-weight: bold;
+  border: solid #81cf6b ;
 }
 
 hr {
@@ -119,7 +120,6 @@ hr {
   background: linear-gradient(50%);
 }
 .button-wrapper {
-  padding: 1rem;
   margin-block: 1rem;
 }
 button:disabled {

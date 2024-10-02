@@ -46,8 +46,4 @@ const onSubmit = () => {
 };
 </script>
 
-<style scoped>
-.border {
-  border: black solid 2px;
-}
-</style>
+<style scoped></style>

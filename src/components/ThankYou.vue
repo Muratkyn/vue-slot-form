@@ -2,8 +2,6 @@
   <div>sdsds</div>
 </template>
 
-<script>
-export default {};
-</script>
+<script lang="ts" setup></script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

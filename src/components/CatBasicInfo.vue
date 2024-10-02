@@ -1,8 +1,8 @@
 <template>
   <div class="">
     <Container
-      :isNextButtonVisible="getNextButton"
-      :isPrevButtonVisible="getPrevButton"
+      isNextButtonVisible
+      isPrevButtonVisible
       :onClickNext="goNext"
       :onClickPrev="goPrev"
       :is-button-enabled="enableButton"
@@ -10,13 +10,15 @@
       <template #Content>
         <h2>Dati anagrafici del gatto</h2>
         <h4>
-          Compila il modulo sottostante, tutte le informazioni sul tuo gatto
-          sono obbligatorie!
+          Compila il modulo sottostante per gatto, tutte le informazioni sul tuo
+          gatto sono obbligatorie!
         </h4>
         <div class="catInfoWrapper">
           <div v-for="catInfo in catBasicInfo">
             <div class="label-item">
-              <label for="catInfo"> {{ catInfo.label }}: </label>
+              <label name="catInfo.name" for="catInfo">
+                {{ catInfo.label }}:
+              </label>
             </div>
             <input
               class="input-field"
@@ -45,13 +47,6 @@ onMounted(() => {
   store.currentPage = 1;
 });
 
-const getNextButton = computed(() => {
-  return store.currentPage === 1;
-});
-
-const getPrevButton = computed(() => {
-  return store.currentPage === 1;
-});
 const goPrev = () => {
   store.currentPage = 0;
   router.push("/");
