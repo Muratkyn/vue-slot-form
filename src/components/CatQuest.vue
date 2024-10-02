@@ -1,8 +1,9 @@
 <template>
   <div>
     <Container
-      :isPrevButtonVisible="getPrevButton"
-      :isButtonSubmitVisible="getSubmitButton"
+      isPrevButtonVisible
+      isButtonSubmitVisible
+      :is-button-enabled="enableButton"
       :onClickPrev="goPrev"
       :onClickSubmit="onSubmit"
     >
@@ -19,8 +20,8 @@
         <div class="numbers-container">
           <div class="center-numbers" v-for="(_, i) in 6" :key="i">
             <p v-if="i > 0">{{ i }}</p>
-            <p v-if="i === 1">Niente</p>
-            <p v-if="i === 5">Molto</p>
+            <p v-if="i === 1">Per niente</p>
+            <p v-if="i === 5">Moltissimo</p>
           </div>
         </div>
         <div
@@ -53,6 +54,7 @@
                 :id="data.name"
                 :value="answer"
                 :name="data.name"
+                v-model="store.catQuestData[data.name as keyof CatQuestData]"
               />
             </div>
           </div>
@@ -67,23 +69,21 @@ import { useAppStore } from "@/stores/store";
 import Container from "./shared/Container.vue";
 import router from "@/router";
 import { catQuestData } from "@/constants";
+import type { CatQuestData } from "@/types";
+import { computed } from "vue";
 
 const store = useAppStore();
 
-const getPrevButton = () => {
-  return store.currentPage === 4;
-};
-const getSubmitButton = () => {
-  return store.currentPage === 4;
-};
-
+const enableButton = computed(() => {
+  return Object.values(store.catQuestData).every((el) => el !== 0);
+});
 const goPrev = () => {
   store.currentPage = 3;
   router.push("/cat-health");
 };
 
 const onSubmit = () => {
-  store.currentPage = 3;
+  store.currentPage = 5;
   router.push("/thank-you");
 };
 </script>

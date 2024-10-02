@@ -3,6 +3,7 @@ import type {
   CatDiseaseHistory,
   CatFoodInformation,
   CatHealthData,
+  CatQuestData,
 } from "@/types";
 import { defineStore } from "pinia";
 import { ref } from "vue";
@@ -37,6 +38,13 @@ export const useAppStore = defineStore("store", () => {
     none: 0,
   });
 
+  const catQuestData = ref<CatQuestData>({
+    catQuest1: 0,
+    catQuest2: 0,
+    catQuest3: 0,
+    catQuest4: 0,
+  });
+
   const catImage = ref<File>();
   const currentPage = ref<number>(0);
   const isChecked = ref<boolean>(false);
@@ -47,6 +55,7 @@ export const useAppStore = defineStore("store", () => {
     catFoodOther,
     catHealthData,
     catDiseaseHistory,
+    catQuestData,
     catImage,
     currentPage,
     isChecked,
