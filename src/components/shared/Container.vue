@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAppStore } from "@/stores/store";
 import type { ButtonProps } from "@/types";
+import { computed } from "vue";
 
 withDefaults(defineProps<ButtonProps>(), {
   isButtonSubmitVisible: false,
@@ -15,45 +16,29 @@ withDefaults(defineProps<ButtonProps>(), {
 
 const store = useAppStore();
 
-// const makeBackgroundGreen = () => {
-//   if (store.currentPage === 1) {
-//     return;
-//   }
-// };
+const steps: number[] = [1, 2, 3, 4];
+const stepsConfig = computed(() => {
+  return steps.map((el) => {
+    return {
+      id: el,
+      // isCurrent: el === store.currentPage,
+      isCompleted: el < store.currentPage,
+    };
+  });
+});
 </script>
 
 <template>
   <div class="stepper-wrapper" v-if="!isStepperVisible">
-    <span
-      :class="{
-        backgroundGreen:
-          store.currentPage === 2 ||
-          store.currentPage === 3 ||
-          store.currentPage === 4,
-      }"
-      >1</span
-    >
-    <hr :class="{ proceeded: store.currentPage > 1 }" />
-    <span
-      :class="{
-        backgroundGreen: store.currentPage === 3 || store.currentPage === 4,
-      }"
-      >2</span
-    >
-    <hr :class="{ proceeded: store.currentPage > 2 }" />
-    <span
-      :class="{
-        backgroundGreen: store.currentPage === 4,
-      }"
-      >3</span
-    >
-    <hr :class="{ proceeded: store.currentPage > 3 }" />
-    <span
-      :class="{
-        backgroundGreen: store.currentPage > 4,
-      }"
-      >4</span
-    >
+    <div v-for="step in stepsConfig" class="stepper-item__wrapper">
+      <span
+        :class="{
+          backgroundGreen: step.isCompleted,
+        }"
+        >{{ step.id }}</span
+      >
+      <hr :class="{ proceeded: step.isCompleted }" v-if="step.id < 4" />
+    </div>
   </div>
 
   <div class="home-wrapper">
@@ -70,7 +55,12 @@ const store = useAppStore();
       >
         Next
       </button>
-      <button type="button" @click="onClickSubmit" v-if="isButtonSubmitVisible">
+      <button
+        type="button"
+        @click="onClickSubmit"
+        v-if="isButtonSubmitVisible"
+        :disabled="!isButtonEnabled"
+      >
         Submit
       </button>
     </div>
@@ -82,8 +72,8 @@ const store = useAppStore();
       //TODO: do not show it when thank you page renders
     "
   >
-    <p>
-      Page <strong> {{ store.currentPage }} </strong> of 4
+    <p v-if="store.currentPage < 5">
+      Page <strong> {{ store.currentPage }} </strong> of {{ steps.length }}
     </p>
   </div>
 </template>
@@ -93,7 +83,14 @@ const store = useAppStore();
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-block: 2rem;
+}
+
+.stepper-item__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 span {
   margin-left: 1rem;
@@ -103,12 +100,13 @@ span {
   width: 1.2rem;
   background-color: white;
   border: #202020 solid;
+  margin: 1rem;
 }
 
 .backgroundGreen {
   background-color: #81cf6b;
   font-weight: bold;
-  border: solid #81cf6b ;
+  border: solid #81cf6b;
 }
 
 hr {

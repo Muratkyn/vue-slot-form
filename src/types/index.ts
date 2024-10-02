@@ -36,3 +36,10 @@ export type CatDiseaseHistory = {
   clamidiaFelina: number;
   none: number;
 };
+
+export type CatQuestData = {
+  catQuest1: number;
+  catQuest2: number;
+  catQuest3: number;
+  catQuest4: number;
+};

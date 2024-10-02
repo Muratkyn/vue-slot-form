@@ -165,25 +165,27 @@ export const catDiseaseHistory = [
 export const catQuestData = [
   {
     name: "catQuest1",
-    question1: "",
+    question1: "Credi che questo questionario sia stato utile?",
     question2: "",
     answers: [1, 2, 3, 4, 5],
   },
   {
     name: "catQuest2",
-    question1: "",
-    question2: "",
+    question1: "Would you like to have more content like this?",
+    question2: "Can this be helpful for your any future needs?",
     answers: [1, 2, 3, 4, 5],
   },
   {
     name: "catQuest3",
-    question1: "",
-    question2: "",
+    question1: "Do you think this questionary will help you to care your cat?",
+    question2:
+      "If this is the case , it will be heplful for your choices at all?",
     answers: [1, 2, 3, 4, 5],
   },
   {
     name: "catQuest4",
-    question1: "",
+    question1:
+      "Do you believe that this questionario will meet the requirement for your cat",
     question2: "",
     answers: [1, 2, 3, 4, 5],
   },
