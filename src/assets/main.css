@@ -40,7 +40,7 @@ button:active {
   width: 100%;
   display: flex;
   flex-flow: column wrap;
-  gap: 1rem;
+  /* gap: 1rem; */
   align-items: center;
   padding-inline: 1rem;
   margin-block: 2rem;
@@ -98,4 +98,12 @@ checkbox-wrapper {
   flex-flow: column;
   text-align: center;
   align-items: center;
+}
+
+.center {
+  width: 10px;
+  display: flex;
+  align-self: center;
+  text-align: center;
+  flex-flow: column;
 }
